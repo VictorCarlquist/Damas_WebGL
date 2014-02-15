@@ -1,0 +1,228 @@
+<!--############################--
+----Autor: Victor Carlquist-------
+---------Para: IFSP-CJO-----------
+################################-->
+<html>
+	<head>
+		<title>Let's Lady!</title>
+		<style>
+			
+			.CSSestado{
+			
+				padding:10px;
+				position:absolute;
+				top:30px;
+				left:750px;
+				border-radius:10px;
+				text-align:center;
+			}
+			
+			div{
+				-webkit-transition: all 2s linear;
+				-moz-transition: 	all 2s linear;
+			}
+			.CSSVez{
+				position:absolute;
+				width: 100px;
+				top:30px;
+				left:150px;
+				padding:10px;
+				font-size:110%;
+				font-weight:bold;
+				border-radius:10px;
+				text-align:center;
+				
+				background-color: rgba(247,24,10,0.5);
+				color:white;
+				 
+			}
+	
+		</style>
+		<script type	=	"text/javascript" src =	"GLGE/glge-compiled-min.js"></script>
+		<script type	=	"text/javascript" src =	"FMoveCamera.js"></script>
+		<script type	=	"text/javascript" src =	"FTabuleiro.js"></script>
+		<script type	=	"text/javascript" src =	"FPega.js"></script>
+		<script>
+			/*Sons*/
+			var audio1;
+			var audio2;
+			function som()
+			{
+				audio1 = document.createElement('audio');
+				audio1.setAttribute('src', 'musica/pas.wav');
+				audio1.loop = true;
+				audio1.volume = 0.3;
+				audio1.play();
+				audio2 = document.createElement('audio');
+				audio2.setAttribute('src', 'musica/pas2.wav');
+				audio2.loop = true;
+				audio2.play();
+			}
+			
+			/*WEBSOCKETS*/
+			var socket;
+			var online = true;
+			function init(){
+				var host = "ws://127.0.0.1:33333/meuserver.php";  
+				try{
+					//if(window.navigator.appName == "Netscape")
+					
+						socket = new WebSocket(host);
+					socket.onopen    = function(msg){document.getElementById("estado").innerHTML = "Conectado";tcpEnvia("novo")};
+					socket.onmessage = function(msg){recebe(msg);};
+					socket.onclose   = function(msg){document.getElementById("estado").innerHTML = "Desconectado";};
+				}
+				catch(ex){ alert(ex);}
+				 
+			}
+			function recebe(msg)
+			{
+				
+				//document.getElementById("debug").innerHTML = msg.data;
+				if(msg.data[0] == "V")
+				{
+					
+				}
+				
+			}
+			function tcpEnvia(local){
+				if(online){
+					msgTCP = local;
+					try{ socket.send(local);} catch(ex){ alert(ex); }
+					//document.getElementById("estado").innerHTML = "enviando " + local;
+					
+				}
+			}
+			function addChat()
+			{
+				var txt_texto =document.getElementById("txt_texto");
+				var txt_chat =document.getElementById("txt_chat");
+				txt_chat.value += "Eu: "+ txt_texto.value + "\n"; 	
+			}
+			function enter(event){
+				var txt_texto =document.getElementById("txt_texto");
+				var txt_chat = document.getElementById("txt_chat");
+				var canvas = document.getElementById("canvas");
+				  if (event.keyCode == 13){
+						//txt_texto.style.left = "400px";
+						//txt_chat.style.left = "400px";
+						event.stopPropagation();
+						txt_texto.focus();
+				  }else
+					 if (event.keyCode == 27){
+						//txt_texto.style.left = "950px";
+						//txt_chat.style.left = "950px";
+						canvas.focus();
+				  }
+				  
+			}
+			function tcpReenvia()
+			{
+				try{ socket.send(msgTCP);} catch(ex){ alert(ex); }
+			}
+			/*FIM WEBSOCKETS*/
+	
+			/*JAVASCRIPT ENGINE:GLGE*/
+			var jogoCena;
+			var doc 			= new GLGE.Document();
+			var camx 			= 0;
+			var camy 			= 0;
+			var numQuad 		= 0;
+			var tabuleiro 		= new Array(8);
+			var tabuleiroQuad 	= new Array(8);
+			var play1 			= true;
+			var gira 			= false;
+			var jogador2		= false;
+			var numPecaP		= 12;
+			var numPecaB		= 12;
+			var seguido			= false;
+			var comeu 			= false;
+			var msgTCP 			= "";
+			
+			doc.onLoad  		= function()
+			{
+				var cenaRender	= new GLGE.Renderer(document.getElementById('canvas'));
+				jogoCena		= new GLGE.Scene();
+				jogoCena 		= doc.getElement("cena");
+				cenaRender.setScene(jogoCena);
+				var camera		= jogoCena.camera;
+				var mouse		= new GLGE.MouseInput(document.getElementById('canvas'));
+				var keys		= new GLGE.KeyInput();
+		
+				InitTabu();
+
+				
+				/*Nucleo do jogo*/
+				
+				function Trender()
+				{  
+					cenaRender.render();
+					requestAnimationFrame(Trender);
+				}
+				
+				function TCameraInput()
+				{
+					MoveCamera(camera,keys);
+					//Pega(mouse);
+				}
+				setInterval(TCameraInput,30);
+				setInterval(Ganhador,200);
+				setInterval(Estado,500);
+				//setInterval(Trender,10);
+				/*Fim do Nucleo*/
+			
+		
+				function tcpEnvia(local)
+				{
+					msgTCP = local;
+					try{ socket.send(local);} catch(ex){ alert(ex); }
+				}
+				
+				function quit()
+				{
+					socket.close();
+					socket=null;
+				}
+				
+				if ( !window.requestAnimationFrame ) {
+					window.requestAnimationFrame = ( function() {
+					return window.webkitRequestAnimationFrame ||
+							window.mozRequestAnimationFrame	||
+							window.oRequestAnimationFrame	||
+							window.msRequestAnimationFrame	||
+
+						function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
+							window.setInterval( callback, 1000 / 60 );
+						};
+					} )();
+				}
+				requestAnimationFrame(Trender);
+				
+			
+				document.getElementById("canvas").onmousedown=function(e){if(!gira)Pega(mouse);}
+				document.getElementById("canvas").onmouseover=function(e){mouseovercanvas=true;}
+				document.getElementById("canvas").onmousemove=function(e){mouseovercanvas=true;}
+				document.getElementById("canvas").onmouseout=function(e){mouseovercanvas=false;}
+				
+			}
+			
+		doc.load("cena.xml");
+		document.onkeydown=enter;
+	</script>
+	</head>
+	<body onload="init();som();">
+		
+		<div style="width:800;margin-left:100px;" id="container">
+			<canvas id="canvas" width="800" height="600" tabindex="1"></canvas>
+		</div>
+	
+		<div id="vez" class="CSSVez">Jogador 1</div>
+		<textarea  style="position:absolute;left:950px;top:250px;color:#000;border-radius:5px;width:260px;height:300px;" id="txt_chat" onclick="document.getElementById('txt_texto').focus();"> </textarea>
+		<input type="editbox" id="txt_texto" onkeydown="if(event.keyCode == 13)if(this.value.length>0){msgTCP='G'+'$'+this.value.substr(0,this.value.lenght);socket.send('G'+'$'+this.value);addChat();this.value='';}enter(event);event.stopPropagation();" style="position:absolute;left:950px;top:560px;width:260px;border-radius:5px;"> 
+		<button type="button" onClick="inicio();" style="position:absolute;left:955px;top:150px;height:30px;width:250px;">Nova Partida</button>
+		<div id="debug"></div>
+		<div id="debug2"></div>
+		<div id="estado" class="CSSestado"></div>
+	</body>
+
+</html>

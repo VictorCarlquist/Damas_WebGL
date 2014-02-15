@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glge SYSTEM "glge.dtd">
+<!-- Created by Blender 2.59 (sub 0) - www.blender.org, source file: '' -->
+<glge>
+	<import url="meshes.xml" />
+	<import url="materials.xml" />
+	<scene id="Scene" ambient_color="rgb(0,0,0)" fog_type="FOG_NONE" background_color="rgb(12,12,12)" camera="#Camera">
+		<object id="Cube.002" mesh="#Cube.003Mesh"
+			rot_order="ROT_ZYX"
+			scale_x="11.192428" scale_y="11.192428" scale_z="11.192428"
+			material="#"

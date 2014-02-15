@@ -1,0 +1,47 @@
+<glge>
+	
+	<import url="cenario/texture/Qbranco/Bmeshes.xml" />
+	<import url="cenario/texture/Qbranco/Bmaterials.xml" />
+	<import url="cenario/texture/Qpreto/Pmeshes.xml" />
+	<import url="cenario/texture/Qpreto/Pmaterials.xml" />
+	<import url="cenario/texture/peca/Pemeshes.xml" />
+
+	<camera id="maincamera" loc_z="15"/>
+
+	<scene id="cena" ambient_color="rgb(10,10,10)" background_color="rgb(0,0,200)"  fog_type="FOG_LINEAR" fog_near="100" fog_far="650" fog_color="#88C3FE" rot_x="-1.57079633" camera="#maincamera">
+		<!--<object id="Plano" mesh="#PlaneMesh"
+		
+			scale="20"
+			material="#branco"
+			loc_x="0.307452" loc_y="0.809273" loc_z="-0.671672"
+			
+		/>-->
+	
+		<collada document="cenario/praca.dae" id="praca1" scale="16" loc_x="-60" loc_y="-50" rot_order="ROT_XZY"  loc_z="90"/>	
+		
+		<light id="Lamp1"
+			attenuation_constant="1.0" attenuation_linear="0.000005" attenuation_quadratic="0.0000001"
+			rot_order="ROT_ZYX"
+			color="rgb(255,255,255)"
+			type="L_DIR"
+			loc_x="4.076245" loc_y="0.005454" loc_z="20.903862"
+			
+		/>
+		<light id="Lamp1"
+			attenuation_constant="1.5" attenuation_linear="0.000005" attenuation_quadratic="0.0000001"
+			rot_order="ROT_ZYX"
+			color="rgb(255,255,255)"
+			type="L_POINT"
+			loc_x="4.076245" loc_y="0.005454" loc_z="20.903862"
+			
+		/>
+
+	<material id="preto1" specular="0" shininess="20" color="#3F3A3A" />
+	<material id="preto" specular="0" shininess="20" color="red" />
+	<material id="branco" specular="0" shininess="20" color="#AAB8A4" />
+	<material id="verde" specular="0" shininess="20" color="green" />
+	
+
+
+	</scene>
+</glge>

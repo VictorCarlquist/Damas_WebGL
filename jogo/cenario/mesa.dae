@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.59.0 r39307</authoring_tool>
+    </contributor>
+    <created>2011-09-27T21:06:31</created>
+    <modified>2011-09-27T21:06:31</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras>
+    <camera id="Camera-camera" name="Camera">
+      <optics>
+        <technique_common>
+          <perspective>
+            <xfov>49.13434</xfov>
+            <aspect_ratio>1.777778</aspect_ratio>
+            <znear>0.1</znear>
+            <zfar>100</zfar>
+          </perspective>
+        </technique_common>
+      </optics>
+    </camera>
+  </library_cameras>
+  <library_lights>
+    <light id="Lamp-light" name="Lamp">
+      <technique_common>
+        <point>
+          <color>1 1 1</color>
+          <constant_attenuation>1</constant_attenuation>
+          <linear_attenuation>0</linear_attenuation>
+          <quadratic_attenuation>0.00111109</quadratic_attenuation>
+        </point>
+      </technique_common>
+      <extra>
+        <technique profile="blender">
+          <adapt_thresh>0.000999987</adapt_thresh>
+          <area_shape>0</area_shape>
+          <area_size>1</area_size>
+          <area_sizey>1</area_sizey>
+          <area_sizez>1</area_sizez>
+          <atm_distance_factor>1</atm_distance_factor>
+          <atm_extinction_factor>1</atm_extinction_factor>
+          <atm_turbidity>2</atm_turbidity>
+          <att1>0</att1>
+          <att2>1</att2>
+          <backscattered_light>1</backscattered_light>
+          <bias>1</bias>
+          <blue>1</blue>
+          <buffers>1</buffers>
+          <bufflag>0</bufflag>
+          <bufsize>2880</bufsize>
+          <buftype>2</buftype>
+          <clipend>30.002</clipend>
+          <clipsta>1.000799</clipsta>
+          <compressthresh>0.04999995</compressthresh>
+          <dist>29.99998</dist>
+          <energy>1</energy>
+          <falloff_type>2</falloff_type>
+          <filtertype>0</filtertype>
+          <flag>0</flag>
+          <gamma>1</gamma>
+          <green>1</green>
+          <halo_intensity>1</halo_intensity>
+          <horizon_brightness>1</horizon_brightness>
+          <mode>8192</mode>
+          <ray_samp>1</ray_samp>
+          <ray_samp_method>1</ray_samp_method>
+          <ray_samp_type>0</ray_samp_type>
+          <ray_sampy>1</ray_sampy>
+          <ray_sampz>1</ray_sampz>
+          <red>1</red>
+          <samp>3</samp>
+          <shadhalostep>0</shadhalostep>
+          <shadow_b>0</shadow_b>
+          <shadow_g>0</shadow_g>
+          <shadow_r>0</shadow_r>
+          <shadspotsize>45</shadspotsize>
+          <sky_colorspace>0</sky_colorspace>
+          <sky_exposure>1</sky_exposure>
+          <skyblendfac>1</skyblendfac>
+          <skyblendtype>1</skyblendtype>
+          <soft>3</soft>
+          <spotblend>0.15</spotblend>
+          <spotsize>75</spotsize>
+          <spread>1</spread>
+          <sun_brightness>1</sun_brightness>
+          <sun_effect_type>0</sun_effect_type>
+          <sun_intensity>1</sun_intensity>
+          <sun_size>1</sun_size>
+          <type>0</type>
+        </technique>
+      </extra>
+    </light>
+  </library_lights>
+  <library_images>
+    <image id="madeira_jpg" name="madeira_jpg">
+      <init_from>texturaPraca/madeira.jpg</init_from>
+    </image>
+  </library_images>
+  <library_effects>
+    <effect id="Material-effect">
+      <profile_COMMON>
+        <newparam sid="madeira_jpg-surface">
+          <surface type="2D">
+            <init_from>madeira_jpg</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="madeira_jpg-sampler">
+          <sampler2D>
+            <source>madeira_jpg-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="madeira_jpg-sampler"/>
+            </diffuse>
+            <index_of_refraction>
+              <float>1</float>
+            </index_of_refraction>
+          </lambert>
+          <extra>
+            <technique profile="FCOLLADA">
+              <bump>
+                <texture texture="madeira_jpg-sampler"/>
+              </bump>
+            </technique>
+          </extra>
+        </technique>
+        <extra>
+          <technique profile="GOOGLEEARTH">
+            <double_sided>1</double_sided>
+          </technique>
+        </extra>
+      </profile_COMMON>
+      <extra><technique profile="MAX3D"><double_sided>1</double_sided></technique></extra>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Material-material" name="Material">
+      <instance_effect url="#Material-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cube-mesh">
+      <mesh>
+        <source id="Cube-mesh-positions">
+          <float_array id="Cube-mesh-positions-array" count="468">1 1 -1 1 -1 -1 -1 -0.9999998 -1 -0.9999997 1 -1 1.096812 1.096811 1 1.096811 -1.096812 1 -1.096812 -1.096811 1 -1.096812 1.096812 1 0.7777778 1 -1 0.5555557 1 -1 0.3333334 1 -1 0.1111112 1 -1 -0.1111109 1 -1 -0.3333331 1 -1 -0.5555553 1 -1 -0.7777775 1 -1 0.7777778 -1 -1 0.5555555 -1 -1 0.3333333 -1 -1 0.1111111 -1 -1 -0.1111112 -0.9999999 -1 -0.3333334 -0.9999999 -1 -0.5555557 -0.9999999 -1 -0.7777779 -0.9999998 -1 0.8530763 1.096811 1 0.6093403 1.096811 1 0.3656042 1.096811 1 0.1218683 1.096811 1 -0.1218677 1.096811 1 -0.3656037 1.096812 1 -0.6093397 1.096812 1 -0.8530757 1.096812 1 0.8530752 -1.096812 1 0.6093392 -1.096812 1 0.3656033 -1.096812 1 0.1218674 -1.096812 1 -0.1218685 -1.096812 1 -0.3656044 -1.096812 1 -0.6093403 -1.096812 1 -0.8530762 -1.096811 1 1 0.6666666 -1 1 0.3333333 -1 1 0 -1 1 -0.3333334 -1 1 -0.6666666 -1 -1 -0.6666665 -1 -1 -0.3333331 -1 -0.9999999 2.68221e-7 -1 -0.9999998 0.3333337 -1 -0.9999997 0.6666669 -1 1.096812 0.7312071 1 1.096812 0.3656033 1 1.096812 -5.96046e-7 1 1.096811 -0.3656045 1 1.096811 -0.7312083 1 -1.096812 -0.7312074 1 -1.096812 -0.3656036 1 -1.096812 2.38419e-7 1 -1.096812 0.3656041 1 -1.096812 0.7312079 1 0.7777778 -0.6666666 -1 0.7777778 -0.3333333 -1 0.7777778 0 -1 0.7777778 0.3333334 -1 0.7777778 0.6666666 -1 0.5555555 -0.6666666 -1 0.5555556 -0.3333333 -1 0.5555556 0 -1 0.5555556 0.3333334 -1 0.5555557 0.6666666 -1 0.3333334 0.6666668 -1 0.3333334 0.3333334 -1 0.3333334 0 -1 0.3333333 -0.3333333 -1 0.3333333 -0.6666666 -1 0.1111112 0.6666668 -1 0.1111112 0.3333334 -1 0.1111111 0 -1 0.1111111 -0.3333333 -1 0.1111111 -0.6666666 -1 -0.111111 0.6666668 -1 -0.1111111 0.3333334 -1 -0.1111111 1.19209e-7 -1 -0.1111111 -0.3333333 -1 -0.1111112 -0.6666665 -1 -0.3333332 0.6666669 -1 -0.3333333 0.3333335 -1 -0.3333333 1.78814e-7 -1 -0.3333333 -0.3333332 -1 -0.3333334 -0.6666665 -1 -0.5555554 0.6666669 -1 -0.5555554 0.3333335 -1 -0.5555555 1.78814e-7 -1 -0.5555556 -0.3333332 -1 -0.5555557 -0.6666665 -1 -0.7777779 -0.6666665 -1 -0.7777778 -0.3333331 -1 -0.7777777 2.68221e-7 -1 -0.7777776 0.3333337 -1 -0.7777776 0.6666669 -1 0.8530761 0.7312073 1 0.8530759 0.3656034 1 0.8530758 -4.76837e-7 1 0.8530755 -0.3656044 1 0.8530753 -0.7312082 1 0.6093401 0.7312073 1 0.6093399 0.3656034 1 0.6093397 -4.17232e-7 1 0.6093396 -0.3656043 1 0.6093394 -0.7312081 1 0.3656035 -0.731208 1 0.3656036 -0.3656041 1 0.3656038 -2.98023e-7 1 0.3656039 0.3656036 1 0.3656041 0.7312074 1 0.1218681 0.7312076 1 0.121868 0.3656036 1 0.1218678 -1.78814e-7 1 0.1218677 -0.3656041 1 0.1218675 -0.7312079 1 -0.1218684 -0.7312079 1 -0.1218683 -0.365604 1 -0.1218681 -1.78814e-7 1 -0.121868 0.3656037 1 -0.1218678 0.7312075 1 -0.3656038 0.7312077 1 -0.3656039 0.3656038 1 -0.3656041 0 1 -0.3656042 -0.3656039 1 -0.3656043 -0.7312077 1 -0.6093402 -0.7312077 1 -0.6093401 -0.3656038 1 -0.60934 0 1 -0.6093399 0.3656039 1 -0.6093398 0.7312077 1 -0.8530761 -0.7312076 1 -0.8530761 -0.3656037 1 -0.853076 1.19209e-7 1 -0.8530759 0.365604 1 -0.8530758 0.7312078 1 -0.6093402 -0.7312077 14.16452 -0.8530761 -0.7312076 14.16452 -0.6093401 -0.3656038 14.16452 -0.8530761 -0.3656037 14.16452 -0.6093399 0.3656039 14.16452 -0.8530759 0.365604 14.16452 -0.6093398 0.7312077 14.16452 -0.8530758 0.7312078 14.16452 0.8530753 -0.7312082 14.16452 0.6093394 -0.7312081 14.16452 0.8530755 -0.3656044 14.16452 0.6093396 -0.3656043 14.16452 0.8530759 0.3656034 14.16452 0.6093399 0.3656034 14.16452 0.8530761 0.7312073 14.16452 0.6093401 0.7312073 14.16452</float_array>
+          <technique_common>
+            <accessor source="#Cube-mesh-positions-array" count="156" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cube-mesh-normals">
+          <float_array id="Cube-mesh-normals-array" count="462">-2.55538e-7 -0.9988305 -0.04834944 -3.83307e-7 -0.9988305 -0.04834938 -2.55538e-7 -0.9988305 -0.04834938 -2.55538e-7 -0.9988305 -0.04834932 -1.27769e-7 -0.9988305 -0.04834932 -2.55538e-7 -0.9988305 -0.04834926 -2.55538e-7 -0.9988305 -0.0483492 -3.83307e-7 -0.9988305 -0.0483492 -2.55538e-7 -0.9988305 -0.04834914 3.83307e-7 0.9988305 -0.04834896 0 0.9988305 -0.04834896 5.11075e-7 0.9988304 -0.04834896 2.55538e-7 0.9988306 -0.04834896 0 0.9988305 -0.04834902 5.11075e-7 0.9988306 -0.04834902 2.55538e-7 0.9988306 -0.04834902 2.55538e-7 0.9988305 -0.04834902 2.55538e-7 0.9988305 -0.04834902 0.9988305 -3.40717e-7 -0.04834944 0.9988305 -1.70358e-7 -0.04834932 0.9988305 -3.40717e-7 -0.04834926 0.9988305 -3.40717e-7 -0.04834914 0.9988305 -1.70359e-7 -0.04834902 0.9988305 -3.40717e-7 -0.04834896 -0.9988305 3.40717e-7 -0.04834938 -0.9988305 0 -0.04834938 -0.9988305 2.55538e-7 -0.04834938 -0.9988305 2.55538e-7 -0.04834938 -0.9988305 1.70359e-7 -0.04834938 -0.9988305 2.55538e-7 -0.04834938 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 -4.89092e-7 -1 0 2.44546e-7 1 0 -2.44546e-7 -1 0 2.44546e-7 1 0 -4.89092e-7 -1 0 3.66819e-7 1 0 -1.22273e-7 -1 0 2.44546e-7 1 0 -1 1.63031e-7 0 -1 1.63031e-7 0 1 -1.63031e-7 0 1 -1.63031e-7 0 -1 4.89092e-7 0 -1 4.89092e-7 0 1 -4.89092e-7 0 1 -4.89092e-7 0 0 0 1 0 0 1 0 0 1 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Cube-mesh-normals-array" count="154" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cube-mesh-vertices">
+          <input semantic="POSITION" source="#Cube-mesh-positions"/>
+        </vertices>
+        <polylist material="Material1" count="154">
+          <input semantic="VERTEX" source="#Cube-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cube-mesh-normals" offset="1"/>
+          <vcount>4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 </vcount>
+          <p>5 0 32 0 16 0 1 0 32 1 33 1 17 1 16 1 33 2 34 2 18 2 17 2 34 3 35 3 19 3 18 3 35 4 36 4 20 4 19 4 36 5 37 5 21 5 20 5 37 6 38 6 22 6 21 6 38 7 39 7 23 7 22 7 39 8 6 8 2 8 23 8 0 9 8 9 24 9 4 9 8 10 9 10 25 10 24 10 9 11 10 11 26 11 25 11 10 12 11 12 27 12 26 12 11 13 12 13 28 13 27 13 12 14 13 14 29 14 28 14 13 15 14 15 30 15 29 15 14 16 15 16 31 16 30 16 15 17 3 17 7 17 31 17 40 18 0 18 4 18 50 18 50 19 51 19 41 19 40 19 51 20 52 20 42 20 41 20 52 21 53 21 43 21 42 21 53 22 54 22 44 22 43 22 54 23 5 23 1 23 44 23 6 24 55 24 45 24 2 24 55 25 56 25 46 25 45 25 56 26 57 26 47 26 46 26 57 27 58 27 48 27 47 27 58 28 59 28 49 28 48 28 59 29 7 29 3 29 49 29 16 30 60 30 44 30 1 30 60 31 61 31 43 31 44 31 61 32 62 32 42 32 43 32 62 33 63 33 41 33 42 33 63 34 64 34 40 34 41 34 0 35 40 35 64 35 8 35 17 36 65 36 60 36 16 36 65 37 66 37 61 37 60 37 66 38 67 38 62 38 61 38 67 39 68 39 63 39 62 39 68 40 69 40 64 40 63 40 69 41 9 41 8 41 64 41 18 42 74 42 65 42 17 42 74 43 73 43 66 43 65 43 73 44 72 44 67 44 66 44 72 45 71 45 68 45 67 45 71 46 70 46 69 46 68 46 70 47 10 47 9 47 69 47 19 48 79 48 74 48 18 48 79 49 78 49 73 49 74 49 78 50 77 50 72 50 73 50 77 51 76 51 71 51 72 51 76 52 75 52 70 52 71 52 75 53 11 53 10 53 70 53 20 54 84 54 79 54 19 54 84 55 83 55 78 55 79 55 83 56 82 56 77 56 78 56 82 57 81 57 76 57 77 57 81 58 80 58 75 58 76 58 80 59 12 59 11 59 75 59 21 60 89 60 84 60 20 60 89 61 88 61 83 61 84 61 88 62 87 62 82 62 83 62 87 63 86 63 81 63 82 63 86 64 85 64 80 64 81 64 85 65 13 65 12 65 80 65 22 66 94 66 89 66 21 66 94 67 93 67 88 67 89 67 93 68 92 68 87 68 88 68 92 69 91 69 86 69 87 69 91 70 90 70 85 70 86 70 90 71 14 71 13 71 85 71 23 72 95 72 94 72 22 72 95 73 96 73 93 73 94 73 96 74 97 74 92 74 93 74 97 75 98 75 91 75 92 75 98 76 99 76 90 76 91 76 99 77 15 77 14 77 90 77 2 78 45 78 95 78 23 78 45 79 46 79 96 79 95 79 46 80 47 80 97 80 96 80 47 81 48 81 98 81 97 81 48 82 49 82 99 82 98 82 49 83 3 83 15 83 99 83 24 84 100 84 50 84 4 84 100 85 101 85 51 85 50 85 101 86 102 86 52 86 51 86 102 87 103 87 53 87 52 87 103 88 104 88 54 88 53 88 104 89 32 89 5 89 54 89 25 90 105 90 100 90 24 90 106 91 107 91 102 91 101 91 107 92 108 92 103 92 102 92 109 93 33 93 32 93 104 93 26 94 114 94 105 94 25 94 114 95 113 95 106 95 105 95 113 96 112 96 107 96 106 96 112 97 111 97 108 97 107 97 111 98 110 98 109 98 108 98 110 99 34 99 33 99 109 99 27 100 115 100 114 100 26 100 115 101 116 101 113 101 114 101 116 102 117 102 112 102 113 102 117 103 118 103 111 103 112 103 118 104 119 104 110 104 111 104 119 105 35 105 34 105 110 105 28 106 124 106 115 106 27 106 124 107 123 107 116 107 115 107 123 108 122 108 117 108 116 108 122 109 121 109 118 109 117 109 121 110 120 110 119 110 118 110 120 111 36 111 35 111 119 111 29 112 125 112 124 112 28 112 125 113 126 113 123 113 124 113 126 114 127 114 122 114 123 114 127 115 128 115 121 115 122 115 128 116 129 116 120 116 121 116 129 117 37 117 36 117 120 117 30 118 134 118 125 118 29 118 134 119 133 119 126 119 125 119 133 120 132 120 127 120 126 120 132 121 131 121 128 121 127 121 131 122 130 122 129 122 128 122 130 123 38 123 37 123 129 123 31 124 139 124 134 124 30 124 138 125 137 125 132 125 133 125 137 126 136 126 131 126 132 126 135 127 39 127 38 127 130 127 7 128 59 128 139 128 31 128 59 129 58 129 138 129 139 129 58 130 57 130 137 130 138 130 57 131 56 131 136 131 137 131 56 132 55 132 135 132 136 132 55 133 6 133 39 133 135 133 135 134 130 134 140 134 141 134 131 135 136 135 143 135 142 135 138 136 133 136 144 136 145 136 134 137 139 137 147 137 146 137 109 138 104 138 148 138 149 138 103 139 108 139 151 139 150 139 106 140 101 140 152 140 153 140 100 141 105 141 155 141 154 141 139 142 138 142 145 142 147 142 136 143 135 143 141 143 143 143 133 144 134 144 146 144 144 144 130 145 131 145 142 145 140 145 108 146 109 146 149 146 151 146 105 147 106 147 153 147 155 147 104 148 103 148 150 148 148 148 101 149 100 149 154 149 152 149 143 150 141 150 140 150 142 150 147 151 145 151 144 151 146 151 151 152 149 152 148 152 150 152 155 153 153 153 152 153 154 153</p>
+        </polylist>
+      </mesh>
+      <extra><technique profile="MAYA"><double_sided>1</double_sided></technique></extra>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Cube" type="NODE">
+        <translate sid="location">0 -0.5273874 2.029793</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 89.99999</rotate>
+        <scale sid="scale">1.946806 1.734087 -0.1650317</scale>
+        <instance_geometry url="#Cube-mesh">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Material1" target="#Material-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node id="Lamp" type="NODE">
+        <translate sid="location">4.076245 -2.805169 7.77227</translate>
+        <rotate sid="rotationZ">0 0 1 169.2563</rotate>
+        <rotate sid="rotationY">0 1 0 -72.77924</rotate>
+        <rotate sid="rotationX">1 0 0 -42.46641</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_light url="#Lamp-light"/>
+      </node>
+      <node id="Camera" type="NODE">
+        <translate sid="location">7.481132 -3.233842 0.2591767</translate>
+        <rotate sid="rotationZ">0 0 1 0.9035213</rotate>
+        <rotate sid="rotationY">0 1 0 -46.68839</rotate>
+        <rotate sid="rotationX">1 0 0 152.9018</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_camera url="#Camera-camera"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

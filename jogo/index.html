@@ -1,0 +1,49 @@
+<!--Autor:Victor Carlquist-->
+<html>
+	<head>
+		<title>Let's Lady</title>
+		<link rel="stylesheet" type="text/css" href="cartao.css"/>
+		<script type="text/javascript">
+			
+			var torto = false;
+			function move()
+			{
+				var img = document.getElementById("imgCoroa");
+				var cartao = document.getElementById("cartao");
+				if(!torto)
+				{
+					//img.style['-webkit-transform']="rotate(-20deg)";
+					//img.style['-moz-webkit-transform']="rotate(-20deg)";
+					cartao.style['-webkit-transform']="rotate(20deg)";
+					cartao.style['-moz-webkit-transform']="rotate(20deg)";
+					torto = true;
+				}else{
+					//img.style['-webkit-transform']="rotate(20deg)";
+					//img.style['-moz-webkit-transform']="rotate(20deg)";
+					cartao.style['-webkit-transform']="rotate(-20deg)";
+					cartao.style['-moz-webkit-transform']="rotate(-20deg)";
+					torto = false;
+				}
+				
+			}
+			setInterval(move,2000);
+		</script>
+	</head>
+	<body>
+	<a href="index2.html">
+		<div id="cartao">
+			<img id="imgCoroa" class="imagem" src="coroa1.jpg"/>
+			<p class="titulo">Let's Lady!</p>
+			<p class="credito">Clique para jogar</p>			
+		
+		</div>
+		</a>
+		<br /><br /><br />
+		<div class="credito">
+		
+		<p>Programador: Victor Carlquist</p>
+			<p>Instituto Federal Campus Campos do Jord&atilde;o</p>
+			<p>glge</p>
+		</div>
+	</body>
+</html>

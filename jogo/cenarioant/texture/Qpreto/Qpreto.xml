@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glge SYSTEM "glge.dtd">
+<!-- Created by Blender 2.59 (sub 0) - www.blender.org, source file: '' -->
+<glge>
+	<import url="meshes.xml" />
+	<import url="materials.xml" />
+	<scene id="Scene" ambient_color="rgb(0,0,0)" fog_type="FOG_NONE" background_color="rgb(12,12,12)" camera="#Camera">
+		<object id="Cube" mesh="#Cube.001Mesh"
+			rot_order="ROT_ZYX"
+			scale_x="2.000000" scale_y="2.000000" scale_z="0.200000"
+			material="#Material.001"
+			loc_x="0.000000" loc_y="0.000000" loc_z="0.000000"
+			rot_x="0.000000" rot_y="0.000000" rot_z="0.000000"
+		/>
+		<light id="Lamp"
+			attenuation_constant="0.500000" attenuation_linear="0.000001" attenuation_quadratic="0.000100"
+			rot_order="ROT_ZYX"
+			color="rgb(255,255,255)"
+			type="L_POINT"
+			loc_x="4.076245" loc_y="1.005454" loc_z="3.786869"
+			rot_x="0.650328" rot_y="0.055217" rot_z="1.866391"
+		/>
+		<camera id="Camera"
+			xtype="C_PERSPECTIVE"
+			rot_order="ROT_XZY"
+			loc_x="7.481132" loc_y="-6.507640" loc_z="5.343665"
+			rot_x="1.109319" rot_y="0.010817" rot_z="0.814928"
+		/>
+	</scene>
+</glge>

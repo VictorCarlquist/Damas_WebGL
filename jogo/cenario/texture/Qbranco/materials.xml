@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glge SYSTEM "glge.dtd">
+<!-- Created by Blender 2.59 (sub 0) - www.blender.org, source file: '' -->
+<glge>
+	<material id="Material" color="rgb(204,204,204)" specular="0.500000" shininess="50.000000" emit="0.000000" >
+	</material>
+</glge>

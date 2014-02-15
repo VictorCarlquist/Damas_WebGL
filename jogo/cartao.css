@@ -1,0 +1,53 @@
+/*Autor: Victor Carlquist*/
+
+body{
+	background-color:#a4ecea;
+}
+#cartao{
+	-webkit-transition: all 2s linear;
+	-moz-transition: all 2s linear;
+	-webkit-transform-origin: top;
+	width:600px;
+	height:400px;
+	background-color:white;
+	border-radius:9px;
+	-moz-border-radius:9px;
+	padding:10px;
+	margin:auto;
+	margin-top:70px;
+	border:6px solid green;
+	-moz-box-shadow: 15px -10px 15px #888;
+	-webkit-box-shadow: 15px -10px 15px #888;
+	
+}
+.titulo{
+	font-size:500%;
+	text-align:center;
+	font-family:'Comic Sans MS';
+	margin-top:-30px;
+	z-index:2;
+}
+.credito{
+	font-size:70%;
+	text-align:center;
+	font-family:'Verdana';
+	margin:10px;
+}
+.imagem{
+	-webkit-transition: all 1.5s linear;
+	-moz-transition: all 1.5s linear;
+	width:90px;
+	-webkit-transform: rotate(-20deg); 
+	-moz-transform: rotate(-20deg);	
+	margin-top:80px;
+	margin-left:60px;
+	z-index:1;
+}
+a:visited{
+	color:black;
+}
+a{
+	color:black;
+	text-decoration:none;
+}
+
